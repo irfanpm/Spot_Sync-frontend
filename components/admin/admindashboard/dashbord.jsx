@@ -3,7 +3,6 @@ import React from 'react'
 
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Chart from '@/components/admin/admindashboard/a';
 import Orders from '@/components/admin/admindashboard/b';
 import TotalService from './c';
 
@@ -21,7 +20,6 @@ const Dashboard = () => {
                     height: 240,
                   }}
                 >
-                  <Chart />
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
