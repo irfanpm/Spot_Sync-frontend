@@ -44,6 +44,7 @@ import "leaflet/dist/leaflet.css";
 import icon from "./constants";
 import AddNewImage from "./addnewImage";
 import EditServiceimg from "./editserviceimage";
+import { axiosInstance } from "@/redux/features/axioseInstance";
 // import Map from "./mapsection";
 const useStyles = styled((theme) => ({
   button: {
@@ -574,7 +575,7 @@ const EditStepper = ({id}) => {
       //     setActiveStep(activeStep + 1);
       //   });
       try {
-        const response = await axios.put('http://127.0.0.1:8000/api/service/editservice', {
+        const response = await axiosInstance.put('http://127.0.0.1:8000/api/service/editservice', {
             serviceid:id,
           servicename: data.Servicename,
           phone:data.phone,

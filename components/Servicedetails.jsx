@@ -11,7 +11,6 @@ import Rating from "@mui/material/Rating";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { Avatar, Button, Skeleton } from "@mui/material";
-import axios from "axios";
 import { getCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
@@ -31,6 +30,7 @@ import { fetchUser } from "@/redux/features/getuser";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import icon from "./servicesection/constants";
+import { axiosInstance } from "@/redux/features/axioseInstance";
 function Servicedetail({ id }) {
   const servicedetails = useSelector(
     (state) => state.servicedetails.service.data
@@ -117,7 +117,7 @@ let longitude
     const rating = event.target.rating.value;
     console.log(rating);
     try {
-      const response = await axios.post(
+      const response = await axiosInstance.post(
         "http://127.0.0.1:8000/api/user/review",
         {
           serviceid: id,

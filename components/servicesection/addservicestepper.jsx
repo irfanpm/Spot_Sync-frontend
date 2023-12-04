@@ -28,7 +28,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 import ImageUploader from './imageuploader';
-import axios from "axios"
+
 import { getCookie } from "cookies-next";
 import { useSelector,useDispatch } from 'react-redux';
 import { deletearray,deleteImage } from '@/redux/features/serviceimage';
@@ -41,6 +41,7 @@ import "leaflet/dist/leaflet.css";
 import icon from "./constants";
 import {  ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { axiosInstance } from "@/redux/features/axioseInstance";
 // import Map from "./mapsection";
 const useStyles = styled((theme) => ({
   button: {
@@ -644,7 +645,7 @@ const LinaerStepper = () => {
       //     setActiveStep(activeStep + 1);
       //   });
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/service/addservice', {
+        const response = await axiosInstance.post('http://127.0.0.1:8000/api/service/addservice', {
           servicename: data.Servicename,
           phone:data.phone,
           category:data.category,

@@ -18,7 +18,6 @@ import CardMedia from '@mui/material/CardMedia';
 import {deleteService} from '@/redux/features/deleteService';
 import { getCookie } from "cookies-next";
 import {findService} from '@/redux/features/findService';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { recieve } from '@/redux/features/serviceimage';
 import {servicereviews } from "@/redux/features/reviewdisplay";

@@ -10,10 +10,10 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { getCookies } from "cookies-next";
-
 import NewServiceupload from "./newimageuploader";
 import findService from "@/redux/features/findService";
 import { useDispatch } from "react-redux";
+import { axiosInstance } from "@/redux/features/axioseInstance";
 
 const cookie = getCookies("token");
 
@@ -47,7 +47,7 @@ const [tr,settr]=useState(true)
     try {
       const url = await NewServiceupload(banner);
 
-      await axios.put(
+      await axiosInstance.put(
         "http://127.0.0.1:8000/api/service/addimage",
         {
           url: url,

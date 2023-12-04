@@ -1,5 +1,5 @@
 'use client'
-import axios from "axios";
+import { axiosInstance } from "@/redux/features/axioseInstance";
 
 const upload = async (file) => {
   const data = new FormData();
@@ -9,7 +9,7 @@ const upload = async (file) => {
   data.append("upload_preset", "avatar");
 
   try {
-    const res = await axios.post("https://api.cloudinary.com/v1_1/dsilypbmi/upload", data, {
+    const res = await axiosInstance.post("https://api.cloudinary.com/v1_1/dsilypbmi/upload", data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

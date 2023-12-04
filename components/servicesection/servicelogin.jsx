@@ -13,9 +13,9 @@ import Image from 'next/image';
 import CloseIcon from '@mui/icons-material/Close';
 import SendIcon from '@mui/icons-material/Send';
 import { useRouter } from "next/navigation";
-import axios from 'axios';
 import { getCookie } from "cookies-next";
 import { useDispatch } from 'react-redux';
+import { axiosInstance } from '@/redux/features/axioseInstance';
 
 
 const style = {
@@ -59,7 +59,7 @@ export default function Servicelogin() {
     const phone=event.target.phone.value
 
     try {
-      const response=await axios.post('http://127.0.0.1:8000/api/service/phone',{
+      const response=await axiosInstance.post('http://127.0.0.1:8000/api/service/phone',{
         phone:phone
 
       },{

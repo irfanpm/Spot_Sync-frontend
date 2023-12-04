@@ -6,8 +6,8 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useSelector, useDispatch } from 'react-redux';
 
-import axios from 'axios';
 import { getCookie } from "cookies-next";
+import { axiosInstance } from '@/redux/features/axioseInstance';
 const EditModal = () => {
     const cookie=getCookie('token')
     const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ console.log(user)
 
     try{
 
-        await axios.put('http://127.0.0.1:8000/api/user/profile/edit',
+        await axiosInstance.put('http://127.0.0.1:8000/api/user/profile/edit',
         {
             username:username,
             email:email,

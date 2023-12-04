@@ -19,6 +19,7 @@ import Stack from '@mui/material/Stack';
 import { fetchUser } from '@/redux/features/getuser';
 import {  ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { axiosInstance } from '@/redux/features/axioseInstance';
 
 
 const style = {
@@ -80,7 +81,7 @@ export default function RegisterOrLogin() {
     const Password = event.target.password.value;
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/user/register', {
+      const response = await axiosInstance.post('http://127.0.0.1:8000/api/user/register', {
         username: Username,
         email: Email,
         password: Password,
@@ -109,7 +110,7 @@ export default function RegisterOrLogin() {
 
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/user/login', {
+      const response = await axiosInstance.post('http://127.0.0.1:8000/api/user/login', {
         username: Username,
         password: Password
       });

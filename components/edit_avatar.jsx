@@ -1,7 +1,6 @@
 'use client'
 import  { useState } from 'react'
 import upload from './upload'
-import axios from 'axios'
 import { getCookie } from "cookies-next";
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -11,6 +10,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import EditIcon from '@mui/icons-material/Edit';
+import { axiosInstance } from '@/redux/features/axioseInstance';
 
 
 
@@ -52,7 +52,7 @@ function Edit_avatar() {
             console.log(url)
             setImage(url)
 
-            await axios.put('http://127.0.0.1:8000/api/user/profile/avatar',
+            await axiosInstance.put('http://127.0.0.1:8000/api/user/profile/avatar',
             {
                 avatar:url
 
