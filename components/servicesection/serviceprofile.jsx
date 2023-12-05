@@ -96,7 +96,7 @@ export default function Serviceprofile() {
       </CardContent>
       <CardActions>
       </CardActions>
-<Button size="small" style={{background:"blue", color:"white"}} onClick={addservice(item._id)}>Add Service</Button>
+<Button size="small" style={{background:"blue", color:"white"}} onClick={()=>addservice(item._id)}>Add Service</Button>
       </>
        ))
 }
