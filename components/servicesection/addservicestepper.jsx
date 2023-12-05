@@ -407,7 +407,7 @@ const dispatch=useDispatch()
       <div style={{ display: 'flex', justifyContent: 'center',alignItems:"center"}} className="flex-column text-center">
    <div className="d-flex">
 
-    {/* <ImageUploader/> */}
+    <ImageUploader/>
    </div>
        { image1.length!=0?<h4>uploaded image</h4>:null}
       <div className='row '>
